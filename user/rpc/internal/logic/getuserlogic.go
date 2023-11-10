@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"user/rpc/internal/svc"
-	"user/rpc/types/user"
+	"rpc/internal/svc"
+	"rpc/types/use"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -23,12 +23,12 @@ func NewGetUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetUserLo
 	}
 }
 
-func (l *GetUserLogic) GetUser(in *user.IdRequest) (*user.UserResponse, error) {
+func (l *GetUserLogic) GetUser(in *use.IdRequest) (*use.UserResponse, error) {
 	// todo: add your logic here and delete this line
 
-	return &user.UserResponse{
-		Id:     "1",
-		Name:   "hello world",
-		Gender: "男",
+	return &use.UserResponse{
+		Id:     "1001",
+		Name:   "晓智科技",
+		Gender: false,
 	}, nil
 }

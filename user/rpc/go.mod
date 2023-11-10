@@ -1,4 +1,4 @@
-module user
+module rpc
 
 go 1.20
 

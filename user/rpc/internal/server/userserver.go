@@ -6,14 +6,14 @@ package server
 import (
 	"context"
 
-	"user/rpc/internal/logic"
-	"user/rpc/internal/svc"
-	"user/rpc/types/user"
+	"rpc/internal/logic"
+	"rpc/internal/svc"
+	"rpc/types/use"
 )
 
 type UserServer struct {
 	svcCtx *svc.ServiceContext
-	user.UnimplementedUserServer
+	use.UnimplementedUserServer
 }
 
 func NewUserServer(svcCtx *svc.ServiceContext) *UserServer {
@@ -22,7 +22,7 @@ func NewUserServer(svcCtx *svc.ServiceContext) *UserServer {
 	}
 }
 
-func (s *UserServer) GetUser(ctx context.Context, in *user.IdRequest) (*user.UserResponse, error) {
+func (s *UserServer) GetUser(ctx context.Context, in *use.IdRequest) (*use.UserResponse, error) {
 	l := logic.NewGetUserLogic(ctx, s.svcCtx)
 	return l.GetUser(in)
 }

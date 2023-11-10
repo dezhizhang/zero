@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"user/rpc/internal/config"
-	"user/rpc/internal/server"
-	"user/rpc/internal/svc"
-	"user/rpc/types/user"
+	"rpc/internal/config"
+	"rpc/internal/server"
+	"rpc/internal/svc"
+	"rpc/types/use"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
@@ -26,7 +26,7 @@ func main() {
 	ctx := svc.NewServiceContext(c)
 
 	s := zrpc.MustNewServer(c.RpcServerConf, func(grpcServer *grpc.Server) {
-		user.RegisterUserServer(grpcServer, server.NewUserServer(ctx))
+		use.RegisterUserServer(grpcServer, server.NewUserServer(ctx))
 
 		if c.Mode == service.DevMode || c.Mode == service.TestMode {
 			reflection.Register(grpcServer)
